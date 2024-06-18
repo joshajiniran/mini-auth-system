@@ -30,6 +30,8 @@ def register() -> None:
     password = input("Enter your password: ")
     confirm_password = input("Confirm your password: ")
 
+    # TODO -> prevent duplicate username registration. Username already taken.
+
     if password != confirm_password:
         print("Password do not match")
         return
@@ -46,6 +48,8 @@ print("1. Login")
 print("2. Register")
 print("3. Exit")
 
+# TODO -> system should allow users to keep attempting options until one of the 3 is entered.
+# hint: use a while loop
 try:
     option: int = int(
         input("Press the corresponding number (1, 2 or 3) to interact with system: ")
