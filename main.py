@@ -48,23 +48,17 @@ print("1. Login")
 print("2. Register")
 print("3. Exit")
 
-# TODO -> system should allow users to keep attempting options until one of the 3 is entered.
-# hint: use a while loop
-try:
-    option: int = int(
-        input("Press the corresponding number (1, 2 or 3) to interact with system: ")
+while True:
+    option = input(
+        "Press the corresponding number (1, 2 or 3) to interact with system: "
     )
-except ValueError:
-    print("Invalid input, please enter a number not string")
-    exit(1)
 
-if option == 1:
-    login()
-elif option == 2:
-    register()
-elif option == 3:
-    print("Closing the application...")
-    exit(0)
-else:
-    print("Invalid input. Please enter one of the options (1, 2 or 3)")
-    exit(-1)
+    if option == "1":
+        login()
+    elif option == "2":
+        register()
+    elif option == "3":
+        print("Closing the application...")
+        break
+    else:
+        print("Invalid input. Please enter one of the options (1, 2 or 3)")
