@@ -30,6 +30,8 @@ def register() -> None:
     password = input("Enter your password: ")
     confirm_password = input("Confirm your password: ")
 
+    # TODO -> prevent duplicate username registration. Username already taken.
+
     if password != confirm_password:
         print("Password do not match")
         return
@@ -46,21 +48,17 @@ print("1. Login")
 print("2. Register")
 print("3. Exit")
 
-try:
-    option: int = int(
-        input("Press the corresponding number (1, 2 or 3) to interact with system: ")
+while True:
+    option = input(
+        "Press the corresponding number (1, 2 or 3) to interact with system: "
     )
-except ValueError:
-    print("Invalid input, please enter a number not string")
-    exit(1)
 
-if option == 1:
-    login()
-elif option == 2:
-    register()
-elif option == 3:
-    print("Closing the application...")
-    exit(0)
-else:
-    print("Invalid input. Please enter one of the options (1, 2 or 3)")
-    exit(-1)
+    if option == "1":
+        login()
+    elif option == "2":
+        register()
+    elif option == "3":
+        print("Closing the application...")
+        break
+    else:
+        print("Invalid input. Please enter one of the options (1, 2 or 3)")
