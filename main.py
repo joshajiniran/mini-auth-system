@@ -47,8 +47,8 @@ def register() -> None:
 print("Welcome to Auth System")
 print("======================")
 
-print("1. Login")
-print("2. Register")
+print("1. Register")
+print("2. Login")
 print("3. Exit")
 
 while True:
@@ -57,9 +57,9 @@ while True:
     )
 
     if option == "1":
-        login()
-    elif option == "2":
         register()
+    elif option == "2":
+        login()
     elif option == "3":
         print("Closing the application...")
         break
