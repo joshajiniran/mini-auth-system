@@ -1,3 +1,5 @@
+from getpass import getpass
+
 user_base = [
     {"username": "josh", "password": "12345678"},
     {"username": "jane", "password": "87892434"},
@@ -9,7 +11,7 @@ def login() -> None:
     print("Login")
     print("======================")
     username: str = input("Enter your username: ")
-    password: str = input("Enter your password: ")
+    password: str = getpass("Enter your password: ")
 
     for user in user_base:
         if username == user["username"]:
@@ -27,8 +29,8 @@ def register() -> None:
     print("Register")
     print("======================")
     username = input("Enter your username: ")
-    password = input("Enter your password: ")
-    confirm_password = input("Confirm your password: ")
+    password = getpass("Enter your password: ")
+    confirm_password = getpass("Confirm your password: ")
 
     # TODO -> prevent duplicate username registration. Username already taken.
 
@@ -37,6 +39,7 @@ def register() -> None:
         return
 
     user_base.append({"username": username, "password": password})
+    print("Registration successful.")
 
     print(user_base)
 
