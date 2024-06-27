@@ -1,10 +1,5 @@
 from getpass import getpass
-
-user_base = [
-    {"username": "josh", "password": "12345678"},
-    {"username": "jane", "password": "87892434"},
-    {"username": "james", "password": "something"},
-]
+import json
 
 
 def login() -> None:
@@ -13,7 +8,10 @@ def login() -> None:
     username: str = input("Enter your username: ")
     password: str = getpass("Enter your password: ")
 
-    for user in user_base:
+    with open("user_db.txt", "r", encoding="utf-8") as file:
+        users = [json.loads(line.strip()) for line in file]
+
+    for user in users:
         if username == user["username"]:
             if password == user["password"]:
                 print("Logged in successfully.")
@@ -38,14 +36,15 @@ def register() -> None:
         print("Password do not match")
         return
 
-    user_base.append({"username": username, "password": password})
+    with open("user_db.txt", "a+", encoding="utf-8") as file:
+        json.dump({"username": username, "password": password}, file)
+        file.write("\n")
+
     print("Registration successful.")
 
-    print(user_base)
 
+print("Welcome to Auth System\n=========================")
 
-print("Welcome to Auth System")
-print("======================")
 
 print("1. Register")
 print("2. Login")
