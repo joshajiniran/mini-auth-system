@@ -9,6 +9,7 @@ packages = [{include = "mini_auth_system"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.0.6"
+g = "^0.0.5"
 
 
 [tool.poetry.group.dev.dependencies]

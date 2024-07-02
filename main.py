@@ -31,6 +31,12 @@ def register() -> None:
     confirm_password = input("Confirm your password: ")
 
     # TODO -> prevent duplicate username registration. Username already taken.
+    
+        # Check if the username is already taken
+    for user in user_base:
+          if username ==  user["username"]:
+             print("Username already taken")
+             return
 
     if password != confirm_password:
         print("Password do not match")
