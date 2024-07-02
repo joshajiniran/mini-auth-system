@@ -1,9 +1,11 @@
 import auth
 from home import show_instruction
 
+
 if auth.MAINTENANCE_MODE:
     print("Application is under maintainance.\nPlease check back later.")
     exit()
+
 
 while True:
     show_instruction()

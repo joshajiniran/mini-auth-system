@@ -32,13 +32,18 @@ def register() -> None:
     password = getpass("Enter your password: ")
     confirm_password = getpass("Confirm your password: ")
 
-    # TODO -> prevent duplicate username registration. Username already taken.
-
     if password != confirm_password:
         print("\nPassword do not match")
         return
 
     with open("user_db.txt", "a+", encoding="utf-8") as file:
+        users = [json.loads(line.strip()) for line in file]
+        # Check if the username is already taken
+        for user in users:
+            if username == user["username"]:
+                print("Username already taken")
+                return
+
         json.dump({"username": username, "password": password}, file)
         file.write("\n")
 
