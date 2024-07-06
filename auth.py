@@ -37,10 +37,11 @@ def register() -> None:
         return
 
     with open("user_db.txt", "a+", encoding="utf-8") as file:
+        file.seek(0)
         users = [json.loads(line.strip()) for line in file]
         # Check if the username is already taken
         for user in users:
-            if username == user["username"]:
+            if username.lower() == user["username"].lower():
                 print("Username already taken")
                 return
 
